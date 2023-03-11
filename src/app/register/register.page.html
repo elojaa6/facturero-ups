@@ -1,0 +1,28 @@
+<ion-content class="ion-padding">
+
+  <h1>Create Acount</h1>
+  <h3>Sign up to get started!</h3>
+
+  <form [formGroup]="userRegisterForm" (ngSubmit)="register()">
+    <div class="form-field">
+      <label [ngClass]="focused ? 'label-focused' : ''">Username</label>
+      <input placeholder="Username" formControlName="username" type="text" (focus)="focused = true" (blur)="onBlur($event)" id="username" required>
+    </div>
+
+    <div class="form-field">
+      <label [ngClass]="focused ? 'label-focused' : ''">Password</label>
+      <input placeholder="Password" formControlName="password" type="password" (focus)="focused = true" (blur)="onBlur($event)" id="password" required>
+    </div>
+
+    <div class="form-field">
+      <label [ngClass]="focused ? 'label-focused' : ''">Confirm Password</label>
+      <input placeholder="Confirm Password" formControlName="confirmPassword" type="password" (focus)="focused = true" (blur)="onBlur($event)" id="confirmPassword" required>
+    </div>
+
+    <app-button label="Register"></app-button>
+
+  </form>
+
+  <p class="footer-text">I'm already member, <a routerLink="../login">Sign in</a></p>
+
+</ion-content>

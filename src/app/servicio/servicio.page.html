@@ -1,0 +1,32 @@
+<ion-content class="ion-padding">
+
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <h1>Create Service</h1>
+  <h3>Register services to get started!</h3>
+
+  <form [formGroup]="servicioRegisterForm" (ngSubmit)="registerServicio()">
+    <div class="form-field">
+      <label [ngClass]="focused ? 'label-focused' : ''">Descripcion</label>
+      <input placeholder="Descripcion" formControlName="descripcion" type="text" (focus)="focused = true" (blur)="onBlur($event)" id="descripcion" required>
+    </div>
+
+    <div class="form-field">
+      <label [ngClass]="focused ? 'label-focused' : ''">Precio Unitario</label>
+      <input placeholder="Precio Unitario" formControlName="precioUnitario" type="text" (focus)="focused = true" (blur)="onBlur($event)" id="precioUnitario" required>
+    </div>
+
+    <!--div class="form-field" aria-readonly="true">
+      <label aria-disabled="true" [ngClass]="focused ? 'label-focused' : ''">usuarioId</label>
+      <input aria-disabled="true" placeholder="usuarioId" formControlName="usuarioId" type="text" (focus)="focused = true" (blur)="onBlur($event)" id="usuarioId" required>
+    </!--div-->
+
+    <app-button label="Register Service"></app-button>
+
+  </form>
+
+</ion-content>

@@ -1,3 +1,74 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu menuId="main-menu" contentId="main">
+    <ion-content>
+      <div class="menu-header-bg"></div>
+      <div class="header-content">
+        <img src="../assets/person.png" alt="">
+        <ion-label>
+          <h2>UsuarioName</h2>
+          <p>Username</p>
+        </ion-label>
+      </div>
+
+      <ion-list class="menu-items" lines="none">
+        <ion-item class="active" routerLink="../cliente"> 
+          <ion-icon name="create-outline"></ion-icon>Gestion Clientes
+        </ion-item>
+        <ion-item routerLink="../cliente-list">
+          <ion-icon name="list-outline"></ion-icon>Lista Clientes
+        </ion-item>
+        <ion-item class="active" routerLink="../servicio">
+          <ion-icon name="create-outline"></ion-icon>Gestion Servicio
+        </ion-item>
+        <ion-item routerLink="../servicio-list">
+          <ion-icon name="list-outline"></ion-icon>Lista Servicios
+        </ion-item>
+        <ion-item class="active" routerLink="../factura-detalle">
+          <ion-icon name="receipt-outline"></ion-icon>Factura
+        </ion-item>
+        <ion-item routerLink="../factura-list">
+          <ion-icon name="list-outline"></ion-icon>Lista Facturas
+        </ion-item>
+        <ion-item class="active" routerLink="" (click)="exit()">
+          <ion-icon name="exit-outline"></ion-icon> Sing out
+        </ion-item>
+
+      </ion-list>
+
+      <!--ion-accordion-group class="menu-items" >
+        <ion-accordion class="active" >
+          <ion-item slot="header" color="light">
+            <ion-label>Client</ion-label>
+          </ion-item>
+          <ion-item routerLink="../cliente" slot="content">
+            <ion-icon name="create-outline"></ion-icon>Create Client
+          </ion-item>
+          <ion-item routerLink="../cliente-list" slot="content">
+            <ion-icon name="list-outline"></ion-icon>List Client
+          </ion-item>
+        </ion-accordion>
+        <ion-accordion class="active" value="third">
+          <ion-item slot="header" color="light">
+            <ion-label>Service</ion-label>
+          </ion-item>
+          <ion-item routerLink="../servicio" slot="content">
+            <ion-icon name="create-outline"></ion-icon>Create Service
+          </ion-item>
+          <ion-item routerLink="../servicio-list" slot="content">
+            <ion-icon name="list-outline"></ion-icon>List Service
+          </ion-item>
+        </ion-accordion>
+        <ion-accordion class="active" value="second">
+          <ion-item slot="header" color="light">
+            <ion-label>Facture</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+            Third Content
+          </div>
+        </ion-accordion>
+      </!--ion-accordion-group-->
+
+    </ion-content>
+  </ion-menu>   
+  <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>

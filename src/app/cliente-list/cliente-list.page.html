@@ -1,0 +1,33 @@
+<ion-content>
+
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+  
+  <h1>Welcome</h1>
+  <h3>List Client</h3>
+  
+    <ion-card *ngFor="let cli of listadoClientes | async">
+      
+        <ion-card-header>
+          <ion-card-title>{{cli.nombre}}</ion-card-title>
+          <ion-card-subtitle>{{cli.tipoIdentificacion+ ': ' + cli.identificacionNumero}}</ion-card-subtitle>
+        </ion-card-header>
+      <ion-item>
+        <ion-card-content>
+          <ion-button fill="clear" color="success">
+            <ion-icon name="eye-outline"></ion-icon>
+          </ion-button>
+          <ion-button fill="clear" color="success" [routerLink]="['/../cliente-change', cli.identificacionNumero]">
+            <ion-icon name="create-outline"></ion-icon>
+          </ion-button>
+          <ion-button (click) = "eliminar(cli.id)">
+            <ion-icon name="trash-outline"></ion-icon>
+          </ion-button>
+        </ion-card-content>
+      </ion-item>
+      
+    </ion-card>
+</ion-content>

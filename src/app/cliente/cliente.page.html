@@ -1,0 +1,57 @@
+<ion-content class="ion-padding">
+
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <h1>Create Client</h1>
+
+  <form [formGroup]="clienteRegisterForm" (ngSubmit)="registerCliente()">
+
+    <div class="form-field">
+      <ion-item>
+        <ion-label>Selecionar
+        </ion-label>
+        <ion-select formControlName="tipoIdentificacion" id="tipoIdentificacion">
+          <ion-select-option value="RUC">RUC</ion-select-option>
+          <ion-select-option value="CEDULA">CEDULA</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </div>
+
+    <!--div class="form-field">
+      <label [ngClass]="focused ? 'label-focused' : ''">Tipo Identificacion</label>
+      <input placeholder="Tipo Identificacion" formControlName="tipoIdentificacion" type="text"  class="primary-input" (focus)="focused = true" (blur)="onBlur($event)" id="tipoIdentificacion" required>
+    </div-->
+
+    <div class="form-field">
+      <label [ngClass]="focused ? 'label-focused' : ''">Identificacion Numero</label>
+      <input placeholder="Identificacion Numero" formControlName="identificacionNumero" type="text" class="primary-input" (focus)="focused = true" (blur)="onBlur($event)" id="identificacionNumero" required>
+    </div>
+
+    <div class="form-field">
+      <label [ngClass]="focused ? 'label-focused' : ''">Nombre</label>
+      <input placeholder="Nombre" formControlName="nombre" type="text" class="primary-input" (focus)="focused = true" (blur)="onBlur($event)" id="nombre" required>
+    </div>
+
+    <div class="form-field">
+      <label [ngClass]="focused ? 'label-focused' : ''">Direccion</label>
+      <input placeholder="Direccion" formControlName="direccion" type="text" class="primary-input" (focus)="focused = true" (blur)="onBlur($event)" id="direccion" required>
+    </div>
+
+    <div class="form-field">
+      <label [ngClass]="focused ? 'label-focused' : ''">Telefono</label>
+      <input placeholder="Telefono" formControlName="telefono" type="text" class="primary-input" (focus)="focused = true" (blur)="onBlur($event)" id="telefono" required>
+    </div>
+
+    <div class="form-field">
+      <label [ngClass]="focused ? 'label-focused' : ''">Correo Electronico</label>
+      <input placeholder="Correo Electronico" formControlName="correoElectronico" type="text" class="primary-input" (focus)="focused = true" (blur)="onBlur($event)" id="correoElectronico" required>
+    </div>
+
+    <app-button label="Client Register"></app-button>
+
+  </form>
+</ion-content>

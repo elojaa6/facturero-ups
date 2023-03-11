@@ -1,0 +1,45 @@
+<ion-content class="ion-padding">
+  <h1>Welcome</h1>
+  <h3>Sign in to continue!</h3>
+
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <div class="form-field">
+      <label [ngClass]="focused ? 'label-focused' : ''">Username</label>
+      <input placeholder="Username" formControlName="username" type="text" (focus)="focused = true" (blur)="onBlur($event)" id="username" required>
+    </div>
+
+    <div class="form-field">
+      <label [ngClass]="focused ? 'label-focused' : ''">Password</label>
+      <input placeholder="Password" formControlName="password" type="password" (focus)="focused = true" (blur)="onBlur($event)" id="password" required>
+    </div>
+    
+    <a routerLink="#" class="forgot-password-link">Forgot Password?</a>
+    
+    <app-button label="Login"></app-button>
+
+  </form>
+  
+  <p class="footer-text">I'm new User, <a routerLink="../register">Sign Up</a></p>
+</ion-content>
+
+<!--ion-content class="ion-padding">
+  <h1>Welcome</h1>
+  <h3>Sign in to continue!</h3>
+
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <div class="form-field">
+    <label [ngClass]="focused ? 'label-focused' : ''">Username</label>
+    <input placeholder="Username" formControlName="username" type="text" (focus)="focused = true" (blur)="onBlur($event)" id="username">
+    </div>
+    <div class="form-field">
+    <label [ngClass]="focused ? 'label-focused' : ''">Contraseña</label>
+    <input placeholder="Contraseña" formControlName="contraseña" type="text" (focus)="focused = true" (blur)="onBlur($event)" id="contraseña">
+    </div>
+    <a routerLink="#" class="forgot-password-link">Forgot Password?</a>
+
+    <app-button label="Login"></app-button>
+  </form>
+
+  <p class="footer-text">I'm new User, <a routerLink="#">Sign Up</a></p>
+</!--ion-content-->
+

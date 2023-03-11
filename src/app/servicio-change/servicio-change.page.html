@@ -1,0 +1,26 @@
+<ion-content class="ion-padding">
+
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <h1>Update Service</h1>
+
+  <form [formGroup]="servicioUpdateForm" (ngSubmit)="updateServicio()">
+    <div class="form-field">
+      <label [ngClass]="focused ? 'label-focused' : ''">Descripcion</label>
+      <input placeholder="Descripcion" formControlName="descripcion" type="text" (focus)="focused = true" (blur)="onBlur($event)" id="descripcion" required>
+    </div>
+
+    <div class="form-field">
+      <label [ngClass]="focused ? 'label-focused' : ''">Precio Unitario</label>
+      <input placeholder="Precio Unitario" formControlName="precioUnitario" type="text" (focus)="focused = true" (blur)="onBlur($event)" id="precioUnitario" required>
+    </div>
+
+    <app-button label="Register Service"></app-button>
+
+  </form>
+
+</ion-content>

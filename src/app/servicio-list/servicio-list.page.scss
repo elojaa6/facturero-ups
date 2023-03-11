@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    margin-bottom: 10px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+h3{
+    color: #939fab;
+    font-weight: 600;
+}
+
+ion-card {
+    margin-top: 15px;
+    margin-bottom: 1rem;
+    --box-shadow: none;
+    --border-radius: 10px;
+    --background: #FEAB8E;
+    text-transform: initial;
+}
+
+ion-card-title {
+--color: white;
+}
+
+ion-card-subtitle {
+--color: white;
+}
+
+/* iOS places the subtitle above the title */
+ion-card-header.ios {
+display: flex;
+flex-flow: column-reverse;
+}

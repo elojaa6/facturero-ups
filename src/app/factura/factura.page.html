@@ -1,0 +1,66 @@
+<ion-content>
+
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <div class="titulo">
+    <div class="cuadro-derecho"></div>
+  </div>
+  <h1 class="text-titulo">INVOICE</h1>
+
+  <ion-item>
+    <ion-input #identificador id="identificacionNumero" type="text" class="input1"
+      placeholder="Ingrese # identificación" required class="ion-text-center"></ion-input>
+
+
+    <ion-button color="tertiary" slot="end" (click)="buscarClienteIdentificacion(''+identificador.value)">
+      <ion-icon name="search-outline"></ion-icon>
+    </ion-button>
+  </ion-item>
+
+  <div class="form-field">
+    <label [ngClass]="focused ? 'label-focused' : ''">Nombre</label>
+    <input [(ngModel)]="cliente.nombre" id="nombre" type="text" class="ion-text-center"
+    value="{{cliente.nombre}}" readOnly (focus)="focused = true" (blur)="onBlur($event)">
+  </div>
+
+  <div class="form-field">
+    <label [ngClass]="focused ? 'label-focused' : ''">Email</label>
+    <input [(ngModel)]="cliente.correoElectronico" id="email" type="text" class="ion-text-center"
+    value="{{cliente.correoElectronico}}" readOnly style="font-size: 10px;" (focus)="focused = true" (blur)="onBlur($event)">
+  </div>
+
+  <!--ion-card>
+    <ion-item color="light">
+      <ion-label>Nombre:</ion-label>
+      <ion-input [(ngModel)]="cliente.nombre" id="nombre" type="text" class="ion-text-center"
+        value="{{cliente.nombre}}" readOnly></ion-input>
+    </ion-item>
+
+    <ion-item color="light">
+      <ion-label>Email:</ion-label>
+      <ion-input [(ngModel)]="cliente.correoElectronico" id="email" type="text" class="ion-text-center"
+        value="{{cliente.correoElectronico}}" readOnly style="font-size: 10px;"></ion-input>
+    </ion-item>
+  </!--ion-card-->
+
+  <form [formGroup]="facturaRegisterForm" (ngSubmit)="cargarfactura()">
+    <ion-input class="input1" formControlName="clienteId" [(ngModel)]="cliente.id" id="clienteId" type="text"
+      class="ion-text-center" readOnly ></ion-input>
+    
+    <app-button label="Facturar"></app-button>
+
+  </form>
+  
+  <ion-item class="final">
+    <ion-list style="background-color: #FEAB8E;">
+      <ion-label color="dark">Subtotal: {{subtotal}} $</ion-label>
+      <ion-label color="dark">Iva: {{impuesto}} $</ion-label>
+      <ion-label color="dark">Total: {{totalF}} $</ion-label>
+    </ion-list>
+  </ion-item>
+
+</ion-content>

@@ -1,0 +1,35 @@
+<ion-content>
+  
+
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+  
+  <h1>Welcome</h1>
+  <h3>List Servicios</h3>
+
+  <ion-card *ngFor="let ser of listadoServicios | async">
+    <ion-card-header>
+      <ion-card-title>{{ser.descripcion}}</ion-card-title>
+      <ion-card-subtitle>{{'Precio Unitario: ' + ser.precioUnitario}}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-item>
+      <ion-card-content>
+        <ion-button fill="clear" color="success">
+          <ion-icon name="eye-outline"></ion-icon>
+        </ion-button>
+        <ion-button fill="clear" color="success" [routerLink]="['/../servicio-change', ser.id]">
+          <ion-icon name="create-outline"></ion-icon>
+        </ion-button>
+        <ion-button (click) = "eliminar(ser.id)">
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-button>
+      </ion-card-content>
+    </ion-item>
+    
+  </ion-card>
+
+</ion-content>

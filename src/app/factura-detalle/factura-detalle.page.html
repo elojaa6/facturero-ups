@@ -1,0 +1,64 @@
+<ion-content>
+
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <div class="titulo">
+    <div class="cuadro-derecho"></div>
+  </div>
+  <h1 class="text-titulo">INVOICE</h1>
+
+  <h1 class="ion-text-left">Productos a facturar</h1>
+
+  <form [formGroup]="facturaRegisterForm">
+    <ion-select #seer placeholder="Seleccione Un servicio" formControlName="producto" id="producto"  
+    (ionChange)="handleChange($event)" required>
+
+      <ion-select-option #seer *ngFor="let servicio of listadoServicios"
+        value="servicio">{{servicio.descripcion}}</ion-select-option>
+    </ion-select>
+
+    <div class="form-field">
+      <label [ngClass]="focused ? 'label-focused' : ''">Precio Unitario</label>
+      <input #precioUnitario placeholder="Precio Unitario" formControlName="precioUnitario" type="number" 
+      class="primary-input" (focus)="focused = true" (blur)="onBlur($event)" id="precioUnitario" required
+      value="{{serviciof.precioUnitario}}">
+    </div>
+    
+    <div class="form-field">
+      <label [ngClass]="focused ? 'label-focused' : ''">Cantidad</label>
+      <input #cantidad placeholder="Ingrese la cantidad" formControlName="cantidad1" type="number" class="primary-input" (focus)="focused = true" (blur)="onBlur($event)" id="cantidad1" required>
+    </div>
+
+    <app-button label="Agregar" (click)="agregarDetalles(+precioUnitario.value,serviciof.id, +cantidad.value, serviciof.descripcion)"></app-button>
+
+  </form>
+  
+      <ion-card-title class="ion-text-center">Productos a facturar</ion-card-title>
+      <ion-card *ngFor="let detalles of det">
+
+        <ion-item lines="lines">
+          <ion-thumbnail slot="start">
+            <img src="../../assets/peeps.png"/>
+          </ion-thumbnail>
+          <ion-list >
+            <ion-label color="dark">Servicio: {{detalles.nom}}</ion-label>
+            <ion-label color="dark">Valor: {{detalles.precioUnitario}} $</ion-label>
+          </ion-list>
+        </ion-item>
+
+      </ion-card>
+
+      <ion-item class="final">
+        <ion-list style="background-color: #FEAB8E;">
+          <ion-label color="dark">Subtotal: {{subtotal}} $</ion-label>
+          <ion-label color="dark">Iva: {{impuesto}} $</ion-label>
+          <ion-label color="dark">Total: {{totalF}} $</ion-label>
+          <app-button label="Factura" (click)="siguiente()"></app-button>
+        </ion-list>
+      </ion-item>
+
+</ion-content>
